@@ -35,9 +35,9 @@ def bokeh_line(lines_data, title='利用率趋势', y_label='利用率 (%)', sav
         # 绘制折线
         p.line(x='time', y='value', source=source, line_width=2,
                color=color, legend_label=line_name)
-        # 绘制散点
+        # 绘制散点（Bokeh 3.4+ 使用 scatter 并指定 marker）
         p.scatter(x='time', y='value', source=source, size=5,
-               color=color, alpha=0.5)
+               marker='circle', color=color, alpha=0.5)
 
     # 添加悬停提示（垂直模式）
     hover = HoverTool(tooltips=[("时间", "@time_str"), ("值", "@value%")], mode='vline')

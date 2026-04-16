@@ -3,8 +3,8 @@ from sqlalchemy.orm import declarative_base, sessionmaker
 from datetime import datetime
 from pathlib import Path
 
-# 数据库文件在当前运行目录生成
-BASE_DIR = Path.cwd()
+# 数据库文件在脚本所在目录生成（确保crontab环境下路径一致）
+BASE_DIR = Path(__file__).resolve().parent
 DB_PATH = BASE_DIR / 'sqlalchemy_syslog_sqlite3.db'
 
 # 创建SQLite数据库引擎

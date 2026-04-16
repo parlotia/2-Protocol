@@ -3,8 +3,8 @@ from pathlib import Path
 from datetime import datetime, timedelta
 from collections import defaultdict
 
-# 【关键】把当前目录加入Python搜索路径
-BASE_DIR = Path.cwd()
+# 【关键】把当前脚本所在目录加入Python搜索路径
+BASE_DIR = Path(__file__).resolve().parent
 sys.path.insert(0, str(BASE_DIR))
 
 from create_db import RouterMonitor, Session
