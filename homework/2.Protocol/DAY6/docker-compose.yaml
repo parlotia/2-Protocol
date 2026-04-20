@@ -17,11 +17,13 @@ services:
       - qyt_net
     ports:
       - "8086:8086"
-    restart: always
+    restart: "no"
 
   qyt-grafana:
     image: "grafana/grafana:7.5.11"
     user: root
+    environment:
+      - GF_DEFAULT_LANGUAGE=zh-Hans
     volumes:
       - /data/grafana:/var/lib/grafana
     networks:
@@ -30,7 +32,7 @@ services:
       - "3000:3000"
     depends_on:
       - "qyt-influx"
-    restart: always
+    restart: "no"
 
 networks:
   qyt_net:
